@@ -32,9 +32,9 @@ const subjects = [
 ];
 
 const contactCards = [
-  { icon: Phone, title: 'Llámanos', value: '+51 999 999 999', sub: 'Lunes a Sábado, 8am - 6pm', href: 'tel:+51999999999', color: '#D6A758' },
+  { icon: Phone, title: 'Llámanos', value: '+51 945 881 587', sub: 'Lunes a Sábado, 8am - 6pm', href: 'tel:+51945881587', color: '#D6A758' },
   { icon: Mail, title: 'Escríbenos', value: 'contacto@pardosalimentos.com', sub: 'Respondemos en menos de 24h', href: 'mailto:contacto@pardosalimentos.com', color: '#A8D96B' },
-  { icon: MessageCircle, title: 'WhatsApp', value: '+51 999 999 999', sub: 'Respuesta inmediata', href: 'https://wa.me/51999999999?text=Hola%2C+quiero+informaci%C3%B3n', color: '#25D366' },
+  { icon: MessageCircle, title: 'WhatsApp', value: '+51 945 881 587', sub: 'Respuesta inmediata', href: 'https://wa.me/51945881587?text=Hola%2C+quiero+informaci%C3%B3n', color: '#25D366' },
   { icon: MapPin, title: 'Ubicación', value: 'Lima, Perú', sub: 'Cobertura nacional', href: '#', color: '#E85D04' },
 ];
 
@@ -151,7 +151,7 @@ export default function ContactoPage() {
                     </div>
                     <div>
                       <label className="text-white/45 text-xs font-semibold uppercase tracking-wider mb-2 block">Teléfono *</label>
-                      <input {...register('phone')} placeholder="999 999 999"
+                      <input {...register('phone')} placeholder="945 881 587"
                         className="w-full px-4 py-3.5 rounded-xl text-white placeholder:text-white/20 text-sm focus:outline-none transition-all"
                         style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }} />
                       {errors.phone && <span className="text-red-400/80 text-xs mt-1.5 block">{errors.phone.message}</span>}

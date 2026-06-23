@@ -138,7 +138,7 @@ export function ContactoSection() {
               <h3 className="text-white font-bold text-lg mb-5">Información</h3>
               <div className="space-y-4">
                 {[
-                  { icon: Phone, label: '+51 999 999 999', href: 'tel:+51999999999' },
+                  { icon: Phone, label: '+51 945 881 587', href: 'tel:+51945881587' },
                   { icon: Mail, label: 'contacto@pardosalimentos.com', href: 'mailto:contacto@pardosalimentos.com' },
                   { icon: MapPin, label: 'Lima, Perú — Cobertura Nacional', href: '#' },
                 ].map(({ icon: Icon, label, href }, i) => (
@@ -202,7 +202,7 @@ export function ContactoSection() {
                   </svg>
                 </div>
 
-                <div className="text-white/30 text-xs">+51 999 999 999</div>
+                <div className="text-white/30 text-xs">+51 945 881 587</div>
               </div>
             </div>
           </motion.div>

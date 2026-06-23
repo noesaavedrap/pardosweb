@@ -124,7 +124,7 @@ export function FooterSection() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-white/40 text-sm">
                 <Phone className="w-3.5 h-3.5 text-gold flex-shrink-0" />
-                +51 999 999 999
+                +51 945 881 587
               </li>
               <li className="flex items-center gap-2 text-white/40 text-sm">
                 <Mail className="w-3.5 h-3.5 text-gold flex-shrink-0" />

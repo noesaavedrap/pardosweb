@@ -4,7 +4,7 @@ import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function WhatsAppButton() {
-  const phoneNumber = '+51999999999';
+  const phoneNumber = '+51945881587';
   const message = 'Hola, quiero más información sobre los productos de Pardos Alimentos.';
 
   return (

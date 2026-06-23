@@ -2,17 +2,26 @@
 
 import { motion } from 'framer-motion';
 import { Instagram, Facebook, Youtube, Mail, Phone } from 'lucide-react';
+import Link from 'next/link';
 
-const productLinks = ['Chifles', 'Papitas', 'Bebidas', 'Licores', 'Alfajores', 'Marcianos'];
-const companyLinks = ['Sobre nosotros', 'Distribución', 'Galería', 'Blog'];
+const productLinks = [
+  { label: 'Chifles', href: '/productos' },
+  { label: 'Papitas', href: '/productos' },
+  { label: 'Bebidas', href: '/productos' },
+  { label: 'Licores', href: '/productos' },
+  { label: 'Alfajores', href: '/productos' },
+  { label: 'Marcianos', href: '/productos' },
+];
+const companyLinks = [
+  { label: 'Sobre nosotros', href: '/nosotros' },
+  { label: 'Distribución', href: '/nosotros' },
+  { label: 'Contacto', href: '/contacto' },
+  { label: 'Catálogo', href: '/productos' },
+];
 const legalLinks = ['Términos y condiciones', 'Política de privacidad', 'Cookies'];
 
 export function FooterSection() {
   const year = new Date().getFullYear();
-
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <footer className="relative pt-20 pb-8 overflow-hidden" style={{ background: '#080808', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
@@ -27,9 +36,8 @@ export function FooterSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <a
-                href="#inicio"
-                onClick={e => { e.preventDefault(); scrollTo('#inicio'); }}
+              <Link
+                href="/"
                 className="flex items-center gap-3 mb-5"
               >
                 <div className="w-11 h-11 rounded-xl bg-gold flex items-center justify-center">
@@ -39,7 +47,7 @@ export function FooterSection() {
                   <div className="text-white font-bold text-base tracking-wider">PARDOS</div>
                   <div className="text-gold text-[10px] font-medium tracking-[0.2em] uppercase">Alimentos E.I.R.K.</div>
                 </div>
-              </a>
+              </Link>
 
               <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-[280px]">
                 Empresa 100% peruana especializada en la comercialización y distribución de alimentos de alta calidad.
@@ -78,13 +86,9 @@ export function FooterSection() {
             <ul className="space-y-3">
               {productLinks.map((link, i) => (
                 <li key={i}>
-                  <a
-                    href="#productos"
-                    onClick={e => { e.preventDefault(); scrollTo('#productos'); }}
-                    className="text-white/40 hover:text-gold text-sm transition-colors duration-200"
-                  >
-                    {link}
-                  </a>
+                  <Link href={link.href} className="text-white/40 hover:text-gold text-sm transition-colors duration-200">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -101,9 +105,9 @@ export function FooterSection() {
             <ul className="space-y-3">
               {companyLinks.map((link, i) => (
                 <li key={i}>
-                  <a href="#empresa" onClick={e => { e.preventDefault(); scrollTo('#empresa'); }} className="text-white/40 hover:text-gold text-sm transition-colors duration-200">
-                    {link}
-                  </a>
+                  <Link href={link.href} className="text-white/40 hover:text-gold text-sm transition-colors duration-200">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>

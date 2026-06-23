@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { X, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 
 interface Product {
   id: string;
@@ -253,6 +254,17 @@ export function ProductosSection() {
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
+      </div>
+
+      {/* CTA to full catalog */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-12 flex justify-center">
+        <Link
+          href="/productos"
+          className="inline-flex items-center gap-2 border border-gold/30 text-gold hover:bg-gold hover:text-[#0a0a0a] font-bold text-sm px-8 py-3.5 rounded-2xl transition-all duration-300 tracking-wide hover:shadow-[0_0_30px_rgba(214,167,88,0.3)]"
+        >
+          VER CATÁLOGO COMPLETO
+          <ArrowRight className="w-4 h-4" />
+        </Link>
       </div>
 
       <AnimatePresence>

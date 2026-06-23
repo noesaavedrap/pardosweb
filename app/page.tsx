@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import { Navigation } from '@/components/ui/navigation';
 import { WhatsAppButton } from '@/components/ui/whatsapp-button';
+import { FooterSection } from '@/components/sections/footer-section';
 
 const HeroSection = dynamic(
   () => import('@/components/sections/hero-section').then(m => m.HeroSection),
@@ -26,10 +27,6 @@ const TestimoniosSection = dynamic(
 );
 const ContactoSection = dynamic(
   () => import('@/components/sections/contacto-section').then(m => m.ContactoSection),
-  { ssr: false }
-);
-const FooterSection = dynamic(
-  () => import('@/components/sections/footer-section').then(m => m.FooterSection),
   { ssr: false }
 );
 

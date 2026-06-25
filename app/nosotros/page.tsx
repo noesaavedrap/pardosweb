@@ -56,7 +56,7 @@ const milestones = [
 
 const team = [
   {
-    name: 'Carlos Paredes',
+    name: 'Noah Saavedra',
     role: 'Fundador & CEO',
     image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
     description: 'Más de 15 años liderando la distribución de alimentos en el Perú.',

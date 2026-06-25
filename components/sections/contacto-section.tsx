@@ -83,7 +83,7 @@ export function ContactoSection() {
                     <label className="text-white/50 text-xs font-medium mb-2 block uppercase tracking-wide">Teléfono</label>
                     <input
                       {...register('phone')}
-                      placeholder="999 999 999"
+                      placeholder="945 881 587"
                       className="w-full px-4 py-3.5 rounded-xl text-white placeholder:text-white/25 text-sm focus:outline-none focus:border-gold/50 transition-colors"
                       style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
                     />

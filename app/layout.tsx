@@ -95,7 +95,7 @@ const jsonLd = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+51-999-999-999',
+    telephone: '+51-945-881-587',
     contactType: 'Ventas',
     availableLanguage: 'Spanish',
   },

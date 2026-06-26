@@ -4,10 +4,12 @@ import { motion } from 'framer-motion';
 import { Navigation } from '@/components/ui/navigation';
 import { FooterSection } from '@/components/sections/footer-section';
 import { WhatsAppButton } from '@/components/ui/whatsapp-button';
+import { Turnstile } from '@/components/ui/turnstile';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { toast } from 'sonner';
+import { useState } from 'react';
 import {
   Send, Phone, Mail, MapPin, MessageCircle,
   Clock, Instagram, Facebook, Youtube, ChevronRight
@@ -46,14 +48,22 @@ const faqItems = [
 ];
 
 export default function ContactoPage() {
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileError, setTurnstileError] = useState<string | null>(null);
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
   const onSubmit = async (_data: FormData) => {
+    if (!turnstileToken) {
+      setTurnstileError('Por favor completa el CAPTCHA');
+      return;
+    }
+
     await new Promise(r => setTimeout(r, 1000));
     toast.success('Mensaje enviado', { description: 'Nuestro equipo se pondrá en contacto en menos de 24 horas.' });
     reset();
+    setTurnstileToken(null);
   };
 
   return (
@@ -174,7 +184,21 @@ export default function ContactoPage() {
                       style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }} />
                     {errors.message && <span className="text-red-400/80 text-xs mt-1.5 block">{errors.message.message}</span>}
                   </div>
-                  <button type="submit" disabled={isSubmitting}
+                  <div className="flex flex-col items-start gap-2">
+                    <Turnstile
+                      onVerify={(token) => {
+                        setTurnstileToken(token);
+                        setTurnstileError(null);
+                      }}
+                      onError={(error) => {
+                        setTurnstileError(error);
+                        setTurnstileToken(null);
+                      }}
+                      onExpire={() => setTurnstileToken(null)}
+                    />
+                    {turnstileError && <span className="text-red-400/80 text-xs">{turnstileError}</span>}
+                  </div>
+                  <button type="submit" disabled={isSubmitting || !turnstileToken}
                     className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl font-black text-[#0a0a0a] text-sm tracking-wide bg-gold hover:bg-gold/90 transition-all duration-200 hover:shadow-[0_0_40px_rgba(214,167,88,0.35)] disabled:opacity-50">
                     {isSubmitting ? (
                       <>
